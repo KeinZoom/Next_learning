@@ -1,3 +1,4 @@
+import { log } from "console";
 import React from "react";
 
 export default function DashBoardLayout({
@@ -5,13 +6,16 @@ export default function DashBoardLayout({
   users,
   revenues,
   notifications,
+  login,
 }: {
   children: React.ReactNode;
   users: React.ReactNode;
   revenues: React.ReactNode;
   notifications: React.ReactNode;
+  login: React.ReactNode;
 }) {
-  return (
+  const isLogin: boolean = false;
+  return isLogin ? (
     <div>
       <div>{children}</div>
       <div style={{ display: "flex" }}>
@@ -22,5 +26,7 @@ export default function DashBoardLayout({
         <div style={{ display: "flex", flex: 1 }}>{notifications}</div>
       </div>
     </div>
+  ) : (
+    login
   );
 }
